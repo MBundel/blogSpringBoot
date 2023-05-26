@@ -6,18 +6,25 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
+
 @Repository
 @Entity
 public class Blog {
 
     @Id
     @Getter
-    @Setter
+
     Integer id;
 
     @Getter
-    @Setter
     String blogName;
+
+    @Getter
+    LocalDate timeStamp;
+
+    @Getter
+    String text;
 
     public Blog(){}
 }
