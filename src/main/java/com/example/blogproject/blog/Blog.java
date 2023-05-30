@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
 
+import lombok.Setter;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -17,13 +18,16 @@ public class Blog {
 
     Integer id;
 
+    @Setter
     @Getter
-    String blogName;
+    String Header;
 
     @Getter
+    @Setter
     LocalDate timeStamp;
 
     @Getter
+    @Setter
     String text;
 
 
