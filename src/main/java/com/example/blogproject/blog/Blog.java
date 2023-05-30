@@ -1,17 +1,27 @@
 package com.example.blogproject.blog;
 
+import com.example.blogproject.comments.Comment;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 
 import lombok.Setter;
-import org.springframework.stereotype.Repository;
+
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-@Repository
+
 @Entity
+
 public class Blog {
+
+    @OneToMany //  hier MappedByBlog?
+    @Setter
+    @Getter
+    List<Comment> comments;
 
     @Id
     @Getter
@@ -37,5 +47,12 @@ public class Blog {
         Header = header;
         this.timeStamp = timeStamp;
         this.text = text;
+        comments = new ArrayList<>();
+        addDefaultComment();
+
     }
+    private  void  addDefaultComment(){
+        comments.add(new Comment("Hallo", LocalDate.of(2023, 5, 12),"SweetBabe"));
+    }
+
 }

@@ -29,24 +29,31 @@ public class BlogController {
     @GetMapping(value = "/")
     public String showFullBlog(Model model){
         addBlogs();
-        blogs = blogService.getBlogEntries();
+//        blogs = blogService.getBlogEntries();
         model.addAttribute("blogs", blogs);
         return "/blog";
     }
 
-    @GetMapping(value = "/newest")
+    @GetMapping(value = "/oldest")
     public String sortedByNewestDate(Model model){
-        blogs = blogService.getBlogEntries().stream()
-                .sorted(Comparator.comparing(Blog::getTimeStamp))
+       blogs =  blogs.stream().sorted(Comparator.comparing(Blog::getTimeStamp))
                 .collect(Collectors.toList());
+
+
+//
+//        blogs = blogService.getBlogEntries().stream()
+//                .sorted(Comparator.comparing(Blog::getTimeStamp))
+//                .collect(Collectors.toList());
         model.addAttribute("blogs", blogs);
         return "/blog";
     }
-    @GetMapping(value = "/oldest")
+    @GetMapping(value = "/newest")
     public String sortedByOldestDate(Model model){
-        blogs = blogService.getBlogEntries().stream()
-                .sorted(Comparator.comparing(Blog::getTimeStamp).reversed())
+        blogs =  blogs.stream().sorted(Comparator.comparing(Blog::getTimeStamp).reversed())
                 .collect(Collectors.toList());
+//        blogs = blogService.getBlogEntries().stream()
+//                .sorted(Comparator.comparing(Blog::getTimeStamp).reversed())
+//                .collect(Collectors.toList());
         model.addAttribute("blogs", blogs);
         return "/blog";
     }
@@ -56,6 +63,7 @@ public class BlogController {
 
         blogs.add(new Blog("Header1", LocalDate.of(2023, 5, 30) , "text1" ));
         blogs.add(new Blog("Header2", LocalDate.of(2023, 5, 31) , "text2" ));
+
     }
 
 }
