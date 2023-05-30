@@ -3,7 +3,7 @@ package com.example.blogproject.blog;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
-import lombok.Setter;
+
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -25,6 +25,7 @@ public class Blog {
 
     @Getter
     String text;
+
 
     public Blog(){}
 }
