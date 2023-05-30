@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+    <style>
+        .btn-primary {
+            margin-left: 20px;
+            background-color: #00B38F;
+            color: white;
+        }
+
+        .timestamp {
+            font-size: 10px;
+            font-weight: bold;
+        }
+    </style>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -31,32 +45,47 @@
         </div>
     </div>
 </nav>
+<h1>    Fina's Finest</h1>
+<p>     Erfahre alles über mich und meine Abenteuer!</p>
 
 <div>
     <button type="button" class="btn btn-primary" onclick="sortByNewestDate()">sort Latest</button>
     <button type="button" class="btn btn-primary" onclick="sortByOldestDate()">Sort newest</button>
 </div>
 
-<div class="row g-0 bg-body-secondary position-relative">
-    <div class="col-md-6 mb-md-0 p-md-4">
-        <img src="https://image.stern.de/33481110/t/XY/v1/w1440/r1.7778/-/hund.jpg" height="150" width="300" class="w-100" alt="Hund">
-    </div>
-    <div class="col-md-6 p-4 ps-md-0">
-        <h5 class="mt-0">Treffen mit Hunde-Freundin</h5>
-        <p>Heute war ein schöner Tag! Habe viel gebellt und gekackt.</p>
-        <a href="#" class="stretched-link">Zum Blogeintrag</a>
-    </div>
-    <br>
-<hr>
-</div>
-<div class="row g-0 bg-body-secondary position-relative">
-    <div class="col-md-6 mb-md-0 p-md-4">
-        <img src="https://image.stern.de/33481110/t/XY/v1/w1440/r1.7778/-/hund.jpg" height="150" width="300" class="w-100" alt="Hund">
-    </div>
-    <div class="col-md-6 p-4 ps-md-0">
-        <h5 class="mt-0">Treffen mit Hunde-Freundin</h5>
-        <p>Als Hund ist ein Tag beim Spazierengehen immer ein aufregendes Abenteuer! Morgens, wenn mein Mensch die Leine nimmt und mir signalisiert, dass es Zeit ist, nach draußen zu gehen, kann ich vor Freude kaum stillhalten. Meine Rute wedelt wild...</p>
-        <a href="#" class="stretched-link">Zum Blogeintrag</a>
+<!-- BLOGEINTRAG 1 BEGIN-->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="row g-0 bg-body-secondary position-relative">
+            <div class="col-md-6 mb-md-0 p-md-4">
+            <img src="https://image.stern.de/33481110/t/XY/v1/w1440/r1.7778/-/hund.jpg" class="w-100" alt="Hund">
+            </div>
+            <div class="col-md-6 p-4 ps-md-0">
+                <h5 class="mt-0">Treffen mit Hunde-Freundin</h5>
+                <p>Heute war ein schöner Tag! Habe viel gebellt und gekackt.</p>
+                <p class="timestamp">
+                    Platzhalter für Zeitstempel
+                </p>
+            <a href="#" class="stretched-link">Zum Blogeintrag</a>
+            </div>
+
+            <!-- Button zum Anzeigen von Kommentaren begin-->
+            <p>
+                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                   Kommentare anzeigen
+                </a>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Kommentare anzeigen
+                </button>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                  Hallo, hier ist Schnuffi! Ich finde ja, dass du noch viel mehr bellen und kacken solltest.
+                </div>
+            </div>
+            <!-- Button zum Anzeigen von Kommentaren end-->
+
+        </div>
     </div>
 </div>
 <hr>
@@ -70,6 +99,16 @@
         });
     }
 </script>
+
+<!-- BLOGEINTRAG 1 END-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+
+
+
 
 </body>
 </html>
