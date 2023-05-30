@@ -32,4 +32,10 @@ public class Blog {
 
 
     public Blog(){}
+
+    public Blog(String header, LocalDate timeStamp, String text) {
+        Header = header;
+        this.timeStamp = timeStamp;
+        this.text = text;
+    }
 }

@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,7 +14,12 @@ import java.util.stream.Collectors;
 @Controller
 public class BlogController {
     private final BlogService blogService;
-    private List<Blog> blogs;
+
+    private List<Blog> blogs = new ArrayList<>();
+
+
+
+
 
     @Autowired
     private BlogController(BlogService theBlogService){
@@ -21,6 +28,7 @@ public class BlogController {
 
     @GetMapping(value = "/")
     public String showFullBlog(Model model){
+        addBlogs();
         blogs = blogService.getBlogEntries();
         model.addAttribute("blogs", blogs);
         return "/blog";
@@ -41,6 +49,13 @@ public class BlogController {
                 .collect(Collectors.toList());
         model.addAttribute("blogs", blogs);
         return "/blog";
+    }
+
+
+    public void addBlogs(){
+
+        blogs.add(new Blog("Header1", LocalDate.of(2023, 5, 30) , "text1" ));
+        blogs.add(new Blog("Header2", LocalDate.of(2023, 5, 31) , "text2" ));
     }
 
 }
