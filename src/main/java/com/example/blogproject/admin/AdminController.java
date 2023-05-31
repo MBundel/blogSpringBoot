@@ -18,7 +18,7 @@ public class AdminController {
     private AdminController(AdminService adminService){
         this.adminService = adminService;
     }
-    @PostMapping("/submit")
+    @PostMapping("/admin")
     public <FormObject> String submitForm(@ModelAttribute("formObject") FormObject formObject) {
         Blog blog = new Blog();
 //        blog.setHeader(formObject.getHeader());
