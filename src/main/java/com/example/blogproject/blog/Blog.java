@@ -7,6 +7,7 @@ import jakarta.persistence.OneToMany;
 import lombok.Getter;
 
 import lombok.Setter;
+import org.springframework.stereotype.Repository;
 
 
 import java.time.LocalDate;
@@ -40,13 +41,20 @@ public class Blog {
     @Setter
     String text;
 
+    @Getter
+    @Setter
+    String url;
+
+
+
 
     public Blog(){}
 
-    public Blog(String header, LocalDate timeStamp, String text) {
+    public Blog(String header, LocalDate timeStamp, String text, String url) {
         Header = header;
         this.timeStamp = timeStamp;
         this.text = text;
+        this.url = url;
         comments = new ArrayList<>();
         addDefaultComment();
 

@@ -63,7 +63,7 @@
     <div class="row justify-content-center">
         <div class="row g-0 bg-body-secondary position-relative"  th:each="blog : ${blogs}">
             <div class="col-md-6 mb-md-0 p-md-4">
-            <img src="https://image.stern.de/33481110/t/XY/v1/w1440/r1.7778/-/hund.jpg" class="w-100" alt="Hund">
+            <img th:src="${blog.getUrl()}" class="w-100" alt="Hund">
             </div>
             <div class="col-md-6 p-4 ps-md-0">
                 <h5 class="mt-0"><span th:text="${blog.getHeader()}"></span></h5>
