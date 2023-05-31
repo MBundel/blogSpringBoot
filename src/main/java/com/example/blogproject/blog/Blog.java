@@ -56,11 +56,13 @@ public class Blog {
         this.text = text;
         this.url = url;
         comments = new ArrayList<>();
-        addDefaultComment();
+
 
     }
-    private  void  addDefaultComment(){
-        comments.add(new Comment("Hallo", LocalDate.of(2023, 5, 12),"SweetBabe"));
+    public   void  addComment(Comment comment){
+        comments.add(comment);
+
+
     }
 
 }
