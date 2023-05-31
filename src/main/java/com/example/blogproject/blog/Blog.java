@@ -12,6 +12,8 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -62,6 +64,8 @@ public class Blog {
     public   void  addComment(Comment comment){
         comments.add(comment);
 
+    }
+    public  void sortCommentsByLatest(){
 
     }
 
