@@ -22,6 +22,7 @@ public class BlogController {
 
     @Autowired
     private BlogController(BlogService theBlogService){
+
         this.blogService = theBlogService;
     }
 
