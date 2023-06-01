@@ -51,6 +51,7 @@ public class UserController {
 
         if(!registration.getPassword1().equals(registration.getPassword2())) {
             bindingResult.addError(new FieldError("registration", "password2", "The passwords are not matching."));
+            System.out.println("Passwörter stimmen nicht überein!");
         }
         /*
         // TODO: schauen, ob Verknüpfung zu DAO funktioniert:
@@ -60,15 +61,20 @@ public class UserController {
        */
 
        if(bindingResult.hasErrors()) {
+           System.out.println("Irgendwas stimmt nicht!");
            return "redirect:/register";
        }
        // Wenn Registrierung funktioniert hat:
        User user = new User(registration.getUsername(), registration.getPassword1());
        // TODO: klappt Verbindung zu DAO? Funktioniert das? Eigentlich: userService.save(user);
         userList.add(user);
+        // Zur Kontrolle, ob User gespeichert werden:
+        for(User u : userList) {
+            System.out.println("User: " + u.getId() + " " + u.getUsername() + " " + u.getPassword());
+        }
+        System.out.println("Die Methode wurde ausgeführt.");
 //       userService.saveOrUpdated(user);
-       //TODO: Wenn neue Nutzerseite erstellt, dahin weiterleiten!
-       return "redirect:/latest";
+       return "redirect:/registered";
     }
 
 }

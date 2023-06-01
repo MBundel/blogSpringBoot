@@ -19,7 +19,6 @@ import java.util.List;
 
 
 @Entity
-
 public class Blog {
 
 //    @OneToMany //  hier MappedByBlog?
