@@ -22,10 +22,10 @@ import java.util.List;
 
 public class Blog {
 
-    @OneToMany //  hier MappedByBlog?
-    @Setter
-    @Getter
-    List<Comment> comments;
+//    @OneToMany //  hier MappedByBlog?
+//    @Setter
+//    @Getter
+//    List<Comment> comments;
 
     @Id
     @GeneratedValue
@@ -60,12 +60,12 @@ public class Blog {
         this.timeStamp = timeStamp;
         this.text = text;
         this.url = url;
-        comments = new ArrayList<>();
+//        comments = new ArrayList<>();
 
 
     }
     public   void  addComment(Comment comment){
-        comments.add(comment);
+//        comments.add(comment);
 
     }
     public  void sortCommentsByLatest(){

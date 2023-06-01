@@ -12,18 +12,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.swing.*;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class UserController {
 
+    List<User> userList = new ArrayList<>();
 
-     private final UserService userService;
 
-     @Autowired
-
-     public UserController(UserService userService) {
-        this.userService = userService;
-    }
+//     private final UserService userService;
+//
+//     @Autowired
+//
+//     public UserController(UserService userService) {
+//        this.userService = userService;
+//    }
 
 
     // Brauchen wir wahrscheinlich nicht:
@@ -61,7 +65,8 @@ public class UserController {
        // Wenn Registrierung funktioniert hat:
        User user = new User(registration.getUsername(), registration.getPassword1());
        // TODO: klappt Verbindung zu DAO? Funktioniert das? Eigentlich: userService.save(user);
-       userService.saveOrUpdated(user);
+        userList.add(user);
+//       userService.saveOrUpdated(user);
        //TODO: Wenn neue Nutzerseite erstellt, dahin weiterleiten!
        return "redirect:/latest";
     }

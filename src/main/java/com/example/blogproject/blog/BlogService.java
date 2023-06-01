@@ -1,10 +1,12 @@
 package com.example.blogproject.blog;
 
+import com.example.blogproject.comments.Comment;
 import com.example.blogproject.user.User;
 ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +15,17 @@ public class BlogService {
 @Autowired
 BlogDAO blogDAO;
 
+List<Blog> blogs = new ArrayList<>();
+
 
 // for admins
     public  void createNewBlog(Blog blog){blogDAO.save(blog);}
 
-    public List<Blog> getBlogEntries(){return blogDAO.findAll(); }
+    public List<Blog> getBlogEntries(){
+        return  blogDAO.findAll();
+//
+
+    }
 
 
 
@@ -37,4 +45,8 @@ BlogDAO blogDAO;
         blogDAO.deleteById(id);
         return blogDAO.findById(id).isPresent();
     }
+
+
+
+
 }
