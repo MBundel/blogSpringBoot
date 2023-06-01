@@ -28,11 +28,13 @@ public class User {
 
     @Getter
     @Setter
-    private String userName;
+    private String username;
 
     @Getter
     @Setter
     private String password;
+
+
 
 
     // Wie User mit Comment verknüpfen?
@@ -42,7 +44,7 @@ public class User {
     }
 
     public User(String userName, String password) {
-        this.userName = userName;
+        this.username = username;
         this.password = password;
     }
 
