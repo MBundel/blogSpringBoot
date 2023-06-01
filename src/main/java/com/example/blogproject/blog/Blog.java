@@ -28,6 +28,7 @@ public class Blog {
 
     @Id
     @Getter
+    @Setter
 
     Integer id;
 
