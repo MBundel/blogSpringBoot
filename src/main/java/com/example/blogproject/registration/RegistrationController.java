@@ -9,6 +9,7 @@ import java.util.List;
 
 @Controller
 public class RegistrationController {
+    //
 
     private List<Registration> registrations = new ArrayList<>();
 

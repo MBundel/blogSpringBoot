@@ -7,6 +7,7 @@ import lombok.Setter;
 
 @Entity
 public class Registration {
+    //
 
     @Id
     @Getter
