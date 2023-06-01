@@ -34,7 +34,7 @@ public class UserController {
     }
 
     // An Zwitscher-App orientiert:
-    @PostMapping
+    @PostMapping(value="/register")
     public String register(@Valid @ModelAttribute("registration") RegistrationData registration, BindingResult bindingResult) {
 
         if(!registration.getPassword1().equals(registration.getPassword2())) {
