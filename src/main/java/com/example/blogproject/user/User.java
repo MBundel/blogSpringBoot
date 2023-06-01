@@ -3,6 +3,7 @@ package com.example.blogproject.user;
 
 import com.example.blogproject.comments.Comment;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
@@ -14,9 +15,10 @@ import java.util.List;
 // @Entity
 public class User {
     @Id
+    @GeneratedValue
     @Getter
-    @Setter
-    private int id;
+    private long id;
+
 
     // Wahrscheinlich nicht sinnvoll:
     // @OneToMany //  hier MappedByBlog?
@@ -45,5 +47,7 @@ public class User {
         this.username = username;
         this.password = password;
     }
+
+
 }
 

@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface BlogDAO extends JpaRepository<Blog, Integer> {
+public interface BlogDAO extends JpaRepository<Blog, Long> {
         List<Blog> findAll();
 }

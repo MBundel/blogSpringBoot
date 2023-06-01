@@ -12,21 +12,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.swing.*;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class UserController {
 
-    private final UserService userService;
+    List<User> userList = new ArrayList<>();
 
-    // Brauchen wir hier wahrscheinlich nicht:
+
+//     private final UserService userService;
+//
+//     @Autowired
+//
+//     public UserController(UserService userService) {
+//        this.userService = userService;
+//    }
+
+
+    // Brauchen wir wahrscheinlich nicht:
     // private List<Comment> userComments = new ArrayList<>();
 
-    @Autowired
-    private UserController(UserService theUserService) {
-    this.userService =theUserService;
-    }
+    // Haben noch keinen UserService:
+    // @Autowired
+    // private UserController(UserService theUserService) {
+    // this.userService =theUserService;
+    // }
 
-    // An Zwitscher-App orientiert:
     @GetMapping(value = "/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("registration", new RegistrationData("", "", ""));
@@ -53,7 +65,8 @@ public class UserController {
        // Wenn Registrierung funktioniert hat:
        User user = new User(registration.getUsername(), registration.getPassword1());
        // TODO: klappt Verbindung zu DAO? Funktioniert das? Eigentlich: userService.save(user);
-       userService.saveOrUpdated(user);
+        userList.add(user);
+//       userService.saveOrUpdated(user);
        //TODO: Wenn neue Nutzerseite erstellt, dahin weiterleiten!
        return "redirect:/latest";
     }

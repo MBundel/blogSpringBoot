@@ -2,6 +2,7 @@ package com.example.blogproject.blog;
 
 import com.example.blogproject.comments.Comment;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
@@ -21,16 +22,17 @@ import java.util.List;
 
 public class Blog {
 
-    @OneToMany //  hier MappedByBlog?
-    @Setter
-    @Getter
-    List<Comment> comments;
+//    @OneToMany //  hier MappedByBlog?
+//    @Setter
+//    @Getter
+//    List<Comment> comments;
 
     @Id
+    @GeneratedValue
     @Getter
     @Setter
 
-    Integer id;
+    long id;
 
     @Setter
     @Getter
@@ -38,7 +40,7 @@ public class Blog {
 
     @Getter
     @Setter
-    LocalDate timeStamp;
+    LocalDate timeStamp = LocalDate.of(2023, 01,01);
 
     @Getter
     @Setter
@@ -58,12 +60,12 @@ public class Blog {
         this.timeStamp = timeStamp;
         this.text = text;
         this.url = url;
-        comments = new ArrayList<>();
+//        comments = new ArrayList<>();
 
 
     }
     public   void  addComment(Comment comment){
-        comments.add(comment);
+//        comments.add(comment);
 
     }
     public  void sortCommentsByLatest(){
