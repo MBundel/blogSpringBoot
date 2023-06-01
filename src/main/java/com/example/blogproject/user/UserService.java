@@ -16,7 +16,7 @@ public class UserService {
         return new ArrayList<>(userDAO.findAll());
     }
 
-    public User getUserById(int id){
+    public User getUserById(long id){
         return userDAO.findById(id).get();
     }
     public  boolean saveOrUpdated(User user){
@@ -24,7 +24,7 @@ public class UserService {
         return userDAO.findById(updatedUser.getId()).isPresent();
     }
 
-    public boolean delete(int id){
+    public boolean delete(long id){
         userDAO.deleteById(id);
         return userDAO.findById(id).isPresent();
     }

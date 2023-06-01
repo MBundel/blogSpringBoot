@@ -14,7 +14,8 @@ import java.util.stream.Collectors;
 public class BlogController {
     private final BlogService blogService;
 
-    private List<Blog> blogs = new ArrayList<>();
+//    private List<Blog> blogs = new ArrayList<>();
+    private List<Blog> blogs ;
 
 
 
@@ -28,35 +29,45 @@ public class BlogController {
 
     @GetMapping(value = "/")
     public String showFullBlog(Model model){
-        addBlogs();
-//        blogs = blogService.getBlogEntries();
+
+        blogs = blogService.getBlogEntries();
         model.addAttribute("blogs", blogs);
         return "/blog";
     }
 
     @GetMapping(value = "/oldest")
     public String sortedByOldestDate(Model model){
-
-        List<Blog> sortedBlogs = blogs.stream().sorted(Comparator.comparing(Blog::getTimeStamp))
-                .collect(Collectors.toList());
-
-
-
-
-//        blogs = blogService.getBlogEntries().stream()
-//                .sorted(Comparator.comparing(Blog::getTimeStamp))
+//
+//        List<Blog> sortedBlogs = blogs.stream().sorted(Comparator.comparing(Blog::getTimeStamp))
 //                .collect(Collectors.toList());
+
+
+
+
+        List<Blog> sortedBlogs = blogService.getBlogEntries().stream()
+                .sorted(Comparator.comparing(Blog::getTimeStamp))
+                .collect(Collectors.toList());
         model.addAttribute("blogs", sortedBlogs);
         return "/blog";
     }
     @GetMapping(value = "/latest")
     public String sortedByLatestDate(Model model){
+//        blogs =  blogs.stream().sorted(Comparator.comparing(Blog::getTimeStamp).reversed())
+//                .collect(Collectors.toList());
+
+        blogs = blogService.getBlogEntries().stream()
+                .sorted(Comparator.comparing(Blog::getTimeStamp).reversed())
+                .collect(Collectors.toList());
+        model.addAttribute("blogs", blogs);
+        return "/blog";
+    }
+    @GetMapping(value = "/addDefault")
+    public String addList(Model model){
+        addBlogs();
         blogs =  blogs.stream().sorted(Comparator.comparing(Blog::getTimeStamp).reversed())
                 .collect(Collectors.toList());
 
-//        blogs = blogService.getBlogEntries().stream()
-//                .sorted(Comparator.comparing(Blog::getTimeStamp).reversed())
-//                .collect(Collectors.toList());
+
         model.addAttribute("blogs", blogs);
         return "/blog";
     }

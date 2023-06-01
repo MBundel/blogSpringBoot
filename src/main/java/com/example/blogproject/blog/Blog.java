@@ -2,6 +2,7 @@ package com.example.blogproject.blog;
 
 import com.example.blogproject.comments.Comment;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
@@ -27,10 +28,11 @@ public class Blog {
     List<Comment> comments;
 
     @Id
+    @GeneratedValue
     @Getter
     @Setter
 
-    Integer id;
+    long id;
 
     @Setter
     @Getter
@@ -38,7 +40,7 @@ public class Blog {
 
     @Getter
     @Setter
-    LocalDate timeStamp;
+    LocalDate timeStamp = LocalDate.of(2023, 01,01);
 
     @Getter
     @Setter
