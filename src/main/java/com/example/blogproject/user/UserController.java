@@ -1,7 +1,10 @@
+
 package com.example.blogproject.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class UserController {
@@ -14,10 +17,17 @@ public class UserController {
     // Haben noch keinen UserService:
     // @Autowired
     // private UserController(UserService theUserService) {
-        // this.userService =theUserService;
-        // }
+    // this.userService =theUserService;
+    // }
+
+    @GetMapping(value = "/register")
+    public String showRegistrationForm() {
+        return "/user_registration";
+    }
 
     // @PostMapping
+    // public String
     // Methode erstellen
 
 }
+

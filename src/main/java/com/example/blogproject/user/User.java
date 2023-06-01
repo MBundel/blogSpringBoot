@@ -1,3 +1,4 @@
+
 package com.example.blogproject.user;
 
 import com.example.blogproject.comments.Comment;
@@ -9,7 +10,8 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Entity
+// Einkommentieren, wenn DAO existiert:
+// @Entity
 public class User {
     @Id
     @Getter
@@ -42,3 +44,4 @@ public class User {
         this.password = password;
     }
 }
+
