@@ -60,7 +60,7 @@ public class UserController {
        */
 
        if(bindingResult.hasErrors()) {
-           return "user_registration";
+           return "redirect:/register";
        }
        // Wenn Registrierung funktioniert hat:
        User user = new User(registration.getUsername(), registration.getPassword1());
