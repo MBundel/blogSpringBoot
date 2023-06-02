@@ -62,7 +62,7 @@ public class UserController {
        }
        // Wenn Registrierung funktioniert hat:
        User user = new User(registration.getUsername(), registration.getPassword1());
-
+        user.setId(42);
         // Wenn man ohne Datenbank arbeitet:
         /*
         userList.add(user);

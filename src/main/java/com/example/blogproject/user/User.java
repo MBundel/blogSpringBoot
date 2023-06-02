@@ -13,8 +13,9 @@ import java.util.List;
 @Table(name = "my_user")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
+    @Setter
     private long id;
 
 // TODO Wie User mit Comment verknüpfen?
@@ -26,10 +27,12 @@ public class User {
 
     @Getter
     @Setter
+    @Column(name = "username")
     private String username;
 
     @Getter
     @Setter
+    @Column(name = "password")
     private String password;
 
 
