@@ -2,24 +2,22 @@
 package com.example.blogproject.user;
 
 import com.example.blogproject.comments.Comment;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
 
 // Einkommentieren, wenn DAO existiert:
-// @Entity
+@Entity
+@Table(name = "my_user")
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     private long id;
 
-
+// TODO Wie User mit Comment verknüpfen?
     // Wahrscheinlich nicht sinnvoll:
     // @OneToMany //  hier MappedByBlog?
     // @Setter
@@ -33,11 +31,6 @@ public class User {
     @Getter
     @Setter
     private String password;
-
-
-
-
-    // TODO Wie User mit Comment verknüpfen?
 
 
     public User() {
